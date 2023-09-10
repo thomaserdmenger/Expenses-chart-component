@@ -9,9 +9,44 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./script.js" defer></script>
     <title>Expenses chart component</title>
   </head>
-  <body></body>
+  <body>
+    <div class="card-container">
+      <div class="card-container-top">
+        <h1 style="display: none">Expenses chart component</h1>
+        <div class="card-container-top-left">
+          <span class="card-container-top-balance">My balance</span>
+          <span class="card-container-top-number">$921.48</span>
+        </div>
+        <img class="card-container-top-image" src="./images/logo.svg" alt="#" />
+      </div>
+      <div class="card-container-bottom">
+        <h2 class="card-container-bottom-heading">Spending - Last 7 days</h2>
+        <div class="card-container-bottom-stats-container"></div>
+        <div class="card-container-bottom-amount-container">
+          <div class="card-container-bottom-amount-container-left">
+            <span class="card-container-bottom-amount-text"
+              >Total this month</span
+            >
+            <span class="card-container-bottom-amount-total">$478.33</span>
+          </div>
+          <div class="card-container-bottom-amount-container-right">
+            <span class="card-container-bottom-amount-percent">+2.4%</span>
+            <span class="card-container-bottom-amount-text"
+              >from last month</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

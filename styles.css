@@ -1,0 +1,117 @@
+:root {
+  --color-background-card: #f8e9dd;
+  --color-background-white: #fffbf6;
+  --color-white: #ffffff;
+  --color-red-dark: #ec755d;
+  --color-brown-dark: #382314;
+  --color-brown-medium: #92857a;
+  --border-radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-items: center;
+  background-color: var(--color-background-card);
+  color: var(--color-white);
+  display: flex;
+  font-family: "DM Sans", sans-serif;
+  justify-content: center;
+  min-height: 100dvh;
+  padding: 0 1rem;
+}
+
+.card-container {
+  background-color: var(--color-background-card);
+  width: 100%;
+}
+
+.card-container-top {
+  background-color: var(--color-red-dark);
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem 1.375rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-container-top-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-container-top-balance {
+  font-size: 15px;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+
+.card-container-top-number {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.card-container-top-image {
+  width: 60px;
+}
+
+.card-container-bottom {
+  width: 100%;
+  border-radius: var(--border-radius);
+  padding: 1.5rem 1.25rem;
+}
+
+.card-container-bottom-heading {
+  color: var(--color-brown-dark);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.card-container-bottom-amount-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-container-bottom-amount-container-left,
+.card-container-bottom-amount-container-right {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card-container-bottom-amount-container-left {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.card-container-bottom-amount-container-right {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.card-container-bottom-amount-text {
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: var(--color-brown-medium);
+}
+
+.card-container-bottom-amount-text:nth-of-type(1) {
+  margin-bottom: 0.25rem;
+}
+
+.card-container-bottom-amount-total {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-brown-dark);
+}
+
+.card-container-bottom-amount-percent {
+  color: var(--color-brown-dark);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
