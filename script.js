@@ -41,34 +41,38 @@ const barChartsArr = document.querySelectorAll(".bar-container-charts");
     barContainerItems.appendChild(days);
 
     // Show Amount Container on hover over bar charts
-    charts.addEventListener("mouseenter", () => {
-      amountContainer.style.visibility = "visible";
-    });
+    // charts.addEventListener("mouseenter", () => {
+    //   amountContainer.style.visibility = "visible";
+    // });
 
     // Hide Amount Container on hover over bar charts
-    charts.addEventListener("mouseleave", () => {
-      amountContainer.style.visibility = "hidden";
-    });
+    // charts.addEventListener("mouseleave", () => {
+    //   amountContainer.style.visibility = "hidden";
+    // });
   });
 
   // Active State when button is clicked
   container.addEventListener("click", (e) => {
     if (!e.target.classList.contains("bar-container-charts")) return;
     const buttonArr = container.querySelectorAll("button");
+    const amountContainer = container.querySelectorAll(
+      ".bar-container-amounts-container"
+    );
 
-    buttonArr.forEach((button) => {
+    buttonArr.forEach((button, index) => {
       if (e.target) {
         e.target.setAttribute("status", "active");
         e.target.style.backgroundColor = "#76B5BC";
-        // amountContainer.style.visibility = "visible";
+        e.target
+          .closest("div")
+          .querySelector(".bar-container-amounts-container").style.visibility =
+          "visible";
       }
 
       if (button !== e.target && button.getAttribute("status") === "active") {
         button.style.backgroundColor = "#EC755D";
-        // amountContainer.style.visibility = "hidden";
+        amountContainer[index].style.visibility = "hidden";
       }
     });
   });
 })();
-
-// Auf e.target drücken => active => alle anderen ''
