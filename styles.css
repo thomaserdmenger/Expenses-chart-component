@@ -70,6 +70,7 @@ body {
   color: var(--color-brown-dark);
   font-size: 24px;
   font-weight: 700;
+  margin-bottom: 18px;
 }
 
 .card-container-bottom-amount-container {
@@ -120,8 +121,6 @@ body {
 /* Stats */
 .card-container-bottom-stats-container {
   width: 100%;
-  /* TODO: Delete with */
-  min-height: 200px;
   display: flex;
   justify-content: space-between;
 }
@@ -129,12 +128,21 @@ body {
 .bar-container-items {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--color-background-card);
 }
 
-.bar-container-amounts-text {
-  padding: 0.3rem 0.2rem;
+.bar-container-amounts-container {
+  padding: 0.2rem;
   background-color: var(--color-brown-dark);
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5em;
 }
 
 .bar-container-amounts-text {
@@ -143,9 +151,44 @@ body {
   font-weight: 400;
 }
 
+.bar-container-charts {
+  background-color: var(--color-red-dark);
+  width: 33px;
+  height: 40px;
+}
+
+.bar-container-charts-index-0 {
+  height: 50px;
+}
+
+.bar-container-charts-index-1 {
+  height: 100px;
+}
+
+.bar-container-charts-index-2 {
+  height: 150px;
+}
+
+.bar-container-charts-index-3 {
+  height: 89px;
+}
+
+.bar-container-charts-index-4 {
+  height: 67px;
+}
+
+.bar-container-charts-index-5 {
+  height: 124px;
+}
+
+.bar-container-charts-index-6 {
+  height: 73px;
+}
+
 .bar-container-days {
   color: var(--color-brown-medium);
   font-size: 12px;
   font-weight: 400;
   text-align: center;
+  margin-top: 0.5rem;
 }

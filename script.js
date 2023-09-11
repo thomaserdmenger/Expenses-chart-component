@@ -9,13 +9,14 @@ const container = document.querySelector(
   const data = await response.json();
 
   // Create Bar Container for every data item
-  data.forEach((item) => {
+  data.forEach((item, index) => {
     const barContainerItems = document.createElement("div");
     barContainerItems.classList.add("bar-container-items");
     container.appendChild(barContainerItems);
 
     // Create Amount Container
     const amountContainer = document.createElement("div");
+    amountContainer.classList.add("bar-container-amounts-container");
     const amountText = document.createElement("span");
     amountText.classList.add("bar-container-amounts-text");
     amountText.textContent = `$${item.amount}`;
@@ -23,6 +24,10 @@ const container = document.querySelector(
     barContainerItems.appendChild(amountContainer);
 
     // Create Bar Chart
+    const charts = document.createElement("div");
+    charts.classList.add("bar-container-charts");
+    charts.classList.add(`bar-container-charts-index-${index}`);
+    barContainerItems.appendChild(charts);
 
     // Create Days
     const days = document.createElement("span");
