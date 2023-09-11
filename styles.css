@@ -143,6 +143,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 0.5em;
+  visibility: hidden;
 }
 
 .bar-container-amounts-text {
@@ -152,9 +153,14 @@ body {
 }
 
 .bar-container-charts {
+  all: unset;
   background-color: var(--color-red-dark);
   width: 33px;
-  height: 40px;
+  border-radius: 3px;
+}
+
+.bar-container-charts:hover {
+  background-color: #ff9b86;
 }
 
 .bar-container-charts-index-0 {
@@ -167,6 +173,11 @@ body {
 
 .bar-container-charts-index-2 {
   height: 150px;
+  background-color: #76b5bc;
+}
+
+.bar-container-charts-index-2:hover {
+  background-color: #b4e0e5;
 }
 
 .bar-container-charts-index-3 {

@@ -3,6 +3,9 @@ const container = document.querySelector(
   ".card-container-bottom-stats-container"
 );
 
+// const barChartsArr = document.querySelectorAll(".bar-container-charts");
+// const amountArr = document.querySelectorAll(".bar-container-amounts-container");
+
 // Get Data from data.json with IIFE (Immediately invoked function expressions)
 (async function getData() {
   const response = await fetch("./data.json");
@@ -24,7 +27,7 @@ const container = document.querySelector(
     barContainerItems.appendChild(amountContainer);
 
     // Create Bar Chart
-    const charts = document.createElement("div");
+    const charts = document.createElement("button");
     charts.classList.add("bar-container-charts");
     charts.classList.add(`bar-container-charts-index-${index}`);
     barContainerItems.appendChild(charts);
@@ -34,5 +37,15 @@ const container = document.querySelector(
     days.textContent = item.day;
     days.classList.add("bar-container-days");
     barContainerItems.appendChild(days);
+
+    // Show Amount Container on hover over bar charts
+    charts.addEventListener("mouseenter", () => {
+      amountContainer.style.visibility = "visible";
+    });
+
+    // Hide Amount Container on hover over bar charts
+    charts.addEventListener("mouseleave", () => {
+      amountContainer.style.visibility = "hidden";
+    });
   });
 })();
