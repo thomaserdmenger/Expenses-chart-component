@@ -3,7 +3,7 @@ const container = document.querySelector(
   ".card-container-bottom-stats-container"
 );
 
-// const barChartsArr = document.querySelectorAll(".bar-container-charts");
+const barChartsArr = document.querySelectorAll(".bar-container-charts");
 // const amountArr = document.querySelectorAll(".bar-container-amounts-container");
 
 // Get Data from data.json with IIFE (Immediately invoked function expressions)
@@ -28,6 +28,8 @@ const container = document.querySelector(
 
     // Create Bar Chart
     const charts = document.createElement("button");
+    charts.setAttribute("type", "button");
+    charts.setAttribute("status", "");
     charts.classList.add("bar-container-charts");
     charts.classList.add(`bar-container-charts-index-${index}`);
     barContainerItems.appendChild(charts);
@@ -48,4 +50,25 @@ const container = document.querySelector(
       amountContainer.style.visibility = "hidden";
     });
   });
+
+  // Active State when button is clicked
+  container.addEventListener("click", (e) => {
+    if (!e.target.classList.contains("bar-container-charts")) return;
+    const buttonArr = container.querySelectorAll("button");
+
+    buttonArr.forEach((button) => {
+      if (e.target) {
+        e.target.setAttribute("status", "active");
+        e.target.style.backgroundColor = "#76B5BC";
+        // amountContainer.style.visibility = "visible";
+      }
+
+      if (button !== e.target && button.getAttribute("status") === "active") {
+        button.style.backgroundColor = "#EC755D";
+        // amountContainer.style.visibility = "hidden";
+      }
+    });
+  });
 })();
+
+// Auf e.target drücken => active => alle anderen ''

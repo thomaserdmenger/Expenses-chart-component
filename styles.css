@@ -123,6 +123,9 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--color-background-card);
+  margin-bottom: 1.5rem;
 }
 
 .bar-container-items {
@@ -130,9 +133,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid var(--color-background-card);
 }
 
 .bar-container-amounts-container {
@@ -163,6 +163,10 @@ body {
   background-color: #ff9b86;
 }
 
+.bar-container-charts:active {
+  background-color: #76b5bc;
+}
+
 .bar-container-charts-index-0 {
   height: 50px;
 }
@@ -173,11 +177,6 @@ body {
 
 .bar-container-charts-index-2 {
   height: 150px;
-  background-color: #76b5bc;
-}
-
-.bar-container-charts-index-2:hover {
-  background-color: #b4e0e5;
 }
 
 .bar-container-charts-index-3 {
