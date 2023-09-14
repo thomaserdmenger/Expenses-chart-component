@@ -41,14 +41,21 @@ const barChartsArr = document.querySelectorAll(".bar-container-charts");
     barContainerItems.appendChild(days);
 
     // Show Amount Container on hover over bar charts
-    // charts.addEventListener("mouseenter", () => {
-    //   amountContainer.style.visibility = "visible";
-    // });
+    charts.addEventListener("mouseenter", () => {
+      amountContainer.style.visibility = "visible";
+    });
 
     // Hide Amount Container on hover over bar charts
-    // charts.addEventListener("mouseleave", () => {
-    //   amountContainer.style.visibility = "hidden";
-    // });
+    charts.addEventListener("mouseleave", removeAmountOnMouseLeave);
+
+    function removeAmountOnMouseLeave() {
+      amountContainer.style.visibility = "hidden";
+    }
+
+    charts.addEventListener("click", (e) => {
+      e.target.removeEventListener("mouseleave", removeAmountOnMouseLeave);
+      charts.addEventListener("mouseleave", removeAmountOnMouseLeave);
+    });
   });
 
   // Active State when button is clicked
