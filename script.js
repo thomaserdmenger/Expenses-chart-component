@@ -3,9 +3,6 @@ const container = document.querySelector(
   ".card-container-bottom-stats-container"
 );
 
-const barChartsArr = document.querySelectorAll(".bar-container-charts");
-// const amountArr = document.querySelectorAll(".bar-container-amounts-container");
-
 // Get Data from data.json with IIFE (Immediately invoked function expressions)
 (async function getData() {
   const response = await fetch("./data.json");
@@ -39,47 +36,69 @@ const barChartsArr = document.querySelectorAll(".bar-container-charts");
     days.textContent = item.day;
     days.classList.add("bar-container-days");
     barContainerItems.appendChild(days);
-
-    // Show Amount Container on hover over bar charts
-    charts.addEventListener("mouseenter", () => {
-      amountContainer.style.visibility = "visible";
-    });
-
-    // Hide Amount Container on hover over bar charts
-    charts.addEventListener("mouseleave", removeAmountOnMouseLeave);
-
-    function removeAmountOnMouseLeave() {
-      amountContainer.style.visibility = "hidden";
-    }
-
-    charts.addEventListener("click", (e) => {
-      e.target.removeEventListener("mouseleave", removeAmountOnMouseLeave);
-      charts.addEventListener("mouseleave", removeAmountOnMouseLeave);
-    });
   });
 
-  // Active State when button is clicked
-  container.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("bar-container-charts")) return;
-    const buttonArr = container.querySelectorAll("button");
-    const amountContainer = container.querySelectorAll(
-      ".bar-container-amounts-container"
-    );
+  // Get DOM Elements
+  const chartContainerArr = container.querySelectorAll(".bar-container-items");
+  const amountArr = container.querySelectorAll(
+    ".bar-container-amounts-container"
+  );
+  const chartArr = container.querySelectorAll(".bar-container-charts");
 
-    buttonArr.forEach((button, index) => {
-      if (e.target) {
-        e.target.setAttribute("status", "active");
-        e.target.style.backgroundColor = "#76B5BC";
-        e.target
-          .closest("div")
+  // Add Hover Effect
+  chartArr.forEach((item) => {
+    item.addEventListener("mouseenter", addAmountOnMouseEnter);
+  });
+
+  function addAmountOnMouseEnter(e) {
+    e.target
+      .closest(".bar-container-items")
+      .querySelector(".bar-container-amounts-container").style.visibility =
+      "visible";
+  }
+
+  // Remove Hover Amount Effekt normal
+  chartArr.forEach((item) => {
+    item.addEventListener("mouseleave", removeAmountOnMouseLeave);
+  });
+
+  function removeAmountOnMouseLeave(e) {
+    e.target
+      .closest(".bar-container-items")
+      .querySelector(".bar-container-amounts-container").style.visibility =
+      "hidden";
+  }
+
+  // Show Amount on Click
+  chartArr.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      chartArr.forEach((items) => {
+        items.setAttribute("status", "");
+
+        items
+          .closest(".bar-container-items")
           .querySelector(".bar-container-amounts-container").style.visibility =
-          "visible";
-      }
+          "hidden";
 
-      if (button !== e.target && button.getAttribute("status") === "active") {
-        button.style.backgroundColor = "#EC755D";
-        amountContainer[index].style.visibility = "hidden";
-      }
+        items.style.backgroundColor = "#EC755D";
+
+        items.addEventListener("mouseleave", removeAmountOnMouseLeave);
+      });
+
+      e.target
+        .closest(".bar-container-items")
+        .querySelector(".bar-container-amounts-container").style.visibility =
+        "visible";
+
+      e.target.setAttribute("status", "active");
+
+      e.target.style.backgroundColor = "#76B5BC";
+
+      removeEventListener(e);
     });
   });
+
+  function removeEventListener(e) {
+    e.target.removeEventListener("mouseleave", removeAmountOnMouseLeave);
+  }
 })();
